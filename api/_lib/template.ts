@@ -1,5 +1,4 @@
 
-import { readFileSync } from 'fs';
 import { marked } from 'marked';
 import { sanitizeHtml } from './sanitizer';
 import { ParsedRequest } from './types';
@@ -7,46 +6,22 @@ const twemoji = require('twemoji');
 const twOptions = { folder: 'svg', ext: '.svg' };
 const emojify = (text: string) => twemoji.parse(text, twOptions);
 
-const rglr = readFileSync(`${__dirname}/../_fonts/Inter-Regular.woff2`).toString('base64');
-const bold = readFileSync(`${__dirname}/../_fonts/Inter-Bold.woff2`).toString('base64');
-const mono = readFileSync(`${__dirname}/../_fonts/Vera-Mono.woff2`).toString('base64');
-
 function getCss(theme: string, fontSize: string) {
-    let background = 'white';
-    let foreground = 'black';
-    let radial = 'lightgray';
+    let background = '#FAFAF9';
+    let backgroundImage = 'linear-gradient(180deg, #F5F5F4 0%, #E7E5E4 100%)';
+    let foreground = '#191721';
 
     if (theme === 'dark') {
-        background = 'black';
-        foreground = 'white';
-        radial = 'dimgray';
+        background = '#191721';
+        backgroundImage = 'linear-gradient(180deg, #3A344B 27.08%, #191721 100%)';
+        foreground = '#FAFAF9';
     }
     return `
-    @font-face {
-        font-family: 'Inter';
-        font-style:  normal;
-        font-weight: normal;
-        src: url(data:font/woff2;charset=utf-8;base64,${rglr}) format('woff2');
-    }
-
-    @font-face {
-        font-family: 'Inter';
-        font-style:  normal;
-        font-weight: bold;
-        src: url(data:font/woff2;charset=utf-8;base64,${bold}) format('woff2');
-    }
-
-    @font-face {
-        font-family: 'Vera';
-        font-style: normal;
-        font-weight: normal;
-        src: url(data:font/woff2;charset=utf-8;base64,${mono})  format("woff2");
-      }
 
     body {
         background: ${background};
-        background-image: radial-gradient(circle at 25px 25px, ${radial} 2%, transparent 0%), radial-gradient(circle at 75px 75px, ${radial} 2%, transparent 0%);
-        background-size: 100px 100px;
+        background-image: ${backgroundImage};
+        background-size: 100%;
         height: 100vh;
         display: flex;
         text-align: center;
@@ -78,8 +53,8 @@ function getCss(theme: string, fontSize: string) {
     }
 
     .plus {
-        color: #BBB;
-        font-family: Times New Roman, Verdana;
+        color: #A8A29E;
+        font-family: "Gotham SSm A", "Gotham SSm B", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", "Lucida Grande", "sans-serif";
         font-size: 100px;
     }
 
@@ -93,9 +68,10 @@ function getCss(theme: string, fontSize: string) {
         margin: 0 .05em 0 .1em;
         vertical-align: -0.1em;
     }
-    
+
     .heading {
-        font-family: 'Inter', sans-serif;
+        font-family: "Gotham SSm A", "Gotham SSm B", "HelveticaNeue-Light",
+    "Helvetica Neue Light", "Helvetica Neue", "Lucida Grande", "sans-serif";
         font-size: ${sanitizeHtml(fontSize)};
         font-style: normal;
         color: ${foreground};
