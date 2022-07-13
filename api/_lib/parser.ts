@@ -51,7 +51,7 @@ function getArray(stringOrArray: string[] | string | undefined): string[] {
 }
 
 function getDefaultImages(images: string[]): string[] {
-    const defaultImage = 'https://invibe-assets.s3.amazonaws.com/logo.svg';
+    const defaultImage = 'https://invibe-assets.s3.amazonaws.com/invibe-thread-logo.svg';
 
     if (!images || !images[0]) {
         return [defaultImage];

@@ -142,12 +142,12 @@ const markdownOptions: DropdownOption[] = [
 ];
 
 const imageLightOptions: DropdownOption[] = [
-    { text: 'inVibe Logo', value: 'https://invibe-assets.s3.amazonaws.com/logo.svg' },
+    { text: 'inVibe Logo', value: 'https://invibe-assets.s3.amazonaws.com/invibe-thread-logo.svg' },
 ];
 
 const imageDarkOptions: DropdownOption[] = [
 
-    { text: 'inVibe Logo', value: 'https://invibe-assets.s3.amazonaws.com/logo.svg' },
+    { text: 'inVibe Logo', value: 'https://invibe-assets.s3.amazonaws.com/invibe-thread-logo.svg' },
 ];
 
 const widthOptions = [
