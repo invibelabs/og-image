@@ -1,3 +1,10 @@
+@font-face {
+  font-family: 'ABC Diatype Plus Variable';
+  font-style: normal;
+  font-weight: normal;
+  src: url("https://st-cdn.invibe.co/fonts/diatype/ABCDiatypePlusVariable.woff2") format("woff2"), url("https://st-cdn.invibe.co/fonts/diatype/ABCDiatypePlusVariable.woff") format("woff");
+}
+
 body {
   font-family: "ABC Diatype Plus Variable", "HelveticaNeue-Light",
     "Helvetica Neue Light", "Helvetica Neue", "Lucida Grande", "sans-serif";
