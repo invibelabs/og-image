@@ -1,12 +1,9 @@
-import { readFileSync } from 'fs';
 import { marked } from 'marked';
 import { sanitizeHtml } from './sanitizer';
 import { ParsedRequest } from './types';
 const twemoji = require('twemoji');
 const twOptions = { folder: 'svg', ext: '.svg' };
 const emojify = (text: string) => twemoji.parse(text, twOptions);
-
-const variable = readFileSync(`${__dirname}/../_fonts/ABCDiatypePlusVariable.woff2`).toString('base64');
 
 function getCss(theme: string, fontSize: string) {
     let background = '#D6D3D1';
@@ -60,7 +57,7 @@ function getCss(theme: string, fontSize: string) {
         font-family: 'ABC Diatype Plus Variable';
         font-style: normal;
         font-weight: normal;
-        src: url(data:font/woff2;charset=utf-8;base64,${variable}) format('woff2');
+        src: 'url("https://st-cdn.invibe.co/fonts/diatype/ABCDiatypePlusVariable.woff2") format("woff2"), url("https://st-cdn.invibe.co/fonts/diatype/ABCDiatypePlusVariable.woff") format("woff")',
     }
 
     body {
