@@ -121,8 +121,13 @@ const Toast = ({ show, message }: ToastProps) => {
 }
 
 const themeOptions: DropdownOption[] = [
-    { text: 'Light', value: 'light' },
-    { text: 'Dark', value: 'dark' },
+    { text: 'Purple', value: 'purple' },
+    { text: 'Orange', value: 'orange' },
+    { text: 'Green', value: 'green' },
+    { text: 'Pink', value: 'pink' },
+    { text: 'Yellow', value: 'yellow' },
+    { text: 'Teal', value: 'teal' },
+    { text: 'Blue', value: 'blue' }
 ];
 
 const fileTypeOptions: DropdownOption[] = [
@@ -141,12 +146,7 @@ const markdownOptions: DropdownOption[] = [
     { text: 'Markdown', value: '1' },
 ];
 
-const imageLightOptions: DropdownOption[] = [
-    { text: 'inVibe Logo', value: 'https://invibe-assets.s3.amazonaws.com/invibe-thread-logo.svg' },
-];
-
-const imageDarkOptions: DropdownOption[] = [
-
+const imageColorCardOptions: DropdownOption[] = [
     { text: 'inVibe Logo', value: 'https://invibe-assets.s3.amazonaws.com/invibe-thread-logo.svg' },
 ];
 
@@ -198,11 +198,11 @@ const App = (_: any, state: AppState, setState: SetState) => {
     };
     const {
         fileType = 'png',
-        fontSize = '100px',
-        theme = 'dark',
+        fontSize = '125px',
+        theme = 'purple',
         md = true,
-        text = '**Hello** World 😃',
-        images=[imageDarkOptions[0].value],
+        text = 'Imagine: High-quality Participant Voice Responses 🧠',
+        images=[imageColorCardOptions[0].value],
         widths=[],
         heights=[],
         showToast = false,
@@ -212,7 +212,7 @@ const App = (_: any, state: AppState, setState: SetState) => {
         overrideUrl = null,
     } = state;
     const mdValue = md ? '1' : '0';
-    const imageOptions = theme === 'light' ? imageLightOptions : imageDarkOptions;
+    const imageOptions = imageColorCardOptions;
     const url = new URL(window.location.origin);
     url.pathname = `${encodeURIComponent(text)}.${fileType}`;
     url.searchParams.append('theme', theme);
@@ -238,12 +238,7 @@ const App = (_: any, state: AppState, setState: SetState) => {
                     input: H(Dropdown, {
                         options: themeOptions,
                         value: theme,
-                        onchange: (val: Theme) => {
-                            const options = val === 'light' ? imageLightOptions : imageDarkOptions
-                            let clone = [...images];
-                            clone[0] = options[selectedImageIndex].value;
-                            setLoadingState({ theme: val, images: clone });
-                        }
+                        onchange: (val: Theme) => setLoadingState({ theme: val })
                     })
                 }),
                 H(Field, {
