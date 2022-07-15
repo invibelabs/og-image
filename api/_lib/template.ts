@@ -57,7 +57,7 @@ function getCss(theme: string, fontSize: string) {
         font-family: 'ABC Diatype Plus Variable';
         font-style: normal;
         font-weight: normal;
-        src: 'url("https://st-cdn.invibe.co/fonts/diatype/ABCDiatypePlusVariable.woff2") format("woff2"), url("https://st-cdn.invibe.co/fonts/diatype/ABCDiatypePlusVariable.woff") format("woff")',
+        src: url("https://st-cdn.invibe.co/fonts/diatype/ABCDiatypePlusVariable.woff2") format("woff2"), url("https://st-cdn.invibe.co/fonts/diatype/ABCDiatypePlusVariable.woff") format("woff");
     }
 
     body {
