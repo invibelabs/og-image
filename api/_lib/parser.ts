@@ -29,7 +29,7 @@ export function parseRequest(req: IncomingMessage) {
     const parsedRequest: ParsedRequest = {
         fileType: extension === 'jpeg' ? extension : 'png',
         text: decodeURIComponent(text),
-        theme: theme === 'dark' ? 'dark' : 'light',
+        theme: theme === 'purple' || theme === 'orange' || theme === 'green' || theme === 'pink' || theme === 'yellow' || theme === 'teal' || theme === 'blue' ? theme : 'purple',
         md: md === '1' || md === 'true',
         fontSize: fontSize || '96px',
         images: getArray(images),
@@ -51,7 +51,7 @@ function getArray(stringOrArray: string[] | string | undefined): string[] {
 }
 
 function getDefaultImages(images: string[]): string[] {
-    const defaultImage = 'https://invibe-assets.s3.amazonaws.com/logo.svg';
+    const defaultImage = 'https://invibe-assets.s3.amazonaws.com/invibe-thread-logo.svg';
 
     if (!images || !images[0]) {
         return [defaultImage];
