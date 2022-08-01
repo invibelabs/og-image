@@ -215,12 +215,12 @@ const App = (_: any, state: AppState, setState: SetState) => {
     const imageOptions = imageColorCardOptions;
     const url = new URL(window.location.origin);
     url.pathname = `${encodeURIComponent(text)}.${fileType}`;
-    url.searchParams.append('theme', theme);
-    url.searchParams.append('md', mdValue);
-    url.searchParams.append('fontSize', fontSize);
     for (let image of images) {
         url.searchParams.append('images', image);
     }
+    url.searchParams.append('theme', theme);
+    url.searchParams.append('md', mdValue);
+    url.searchParams.append('fontSize', fontSize);
     for (let width of widths) {
         url.searchParams.append('widths', width);
     }
