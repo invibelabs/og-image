@@ -1,8 +1,5 @@
 {
   "private": true,
-  "engines": {
-    "node": "22.13.1"
-  },
   "scripts": {
     "build": "tsc -p api/tsconfig.json && tsc -p web/tsconfig.json"
   },
